@@ -1,5 +1,8 @@
 import React from "react";
-import { FaFacebook, FaTwitter, FaInstagram, FaGithub } from "react-icons/fa";
+import { FaLinkedin, FaInstagram, FaGithub } from "react-icons/fa";
+
+import { SiGmail } from "react-icons/si";
+import { FaSquareXTwitter } from "react-icons/fa6";
 function Footer() {
   return (
     <>
@@ -10,20 +13,20 @@ function Footer() {
         </div>
         <div className="flex space-x-6 text-2xl">
           <a
-            href="https://facebook.com"
+            href="mailto:jaydipchangani2@gmail.com?subject=Daily Journal&body=This email from Daily Journal"
             target="_blank"
             rel="noreferrer"
             className="hover:text-blue-500"
           >
-            <FaFacebook />
+            <SiGmail />
           </a>
           <a
-            href="https://twitter.com"
+            href="https://linkedin.com/in/jaydip-changani"
             target="_blank"
             rel="noreferrer"
             className="hover:text-sky-400"
           >
-            <FaTwitter />
+            <FaLinkedin />
           </a>
           <a
             href="https://instagram.com/jaydipchangani"
