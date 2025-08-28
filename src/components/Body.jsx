@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useTheme } from "./ThemeContext";
 
 function Body() {
   const [task, setTask] = useState("");
   const [taskList, setTaskList] = useState([]);
   const [editIndex, setEditIndex] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
-
+  const { theme } = useTheme();
   useEffect(() => {
     const storedTasks = localStorage.getItem("tasks");
     if (storedTasks) {
@@ -61,11 +62,19 @@ function Body() {
   );
 
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 bg-white rounded-xl shadow-lg">
+    <div
+      className={`max-w-md mx-auto mt-10 p-6 rounded-xl shadow-lg transition ${
+        theme === "light" ? "bg-white text-black" : "bg-gray-800 text-white"
+      }`}
+    >
       <div className="flex items-center mb-4">
         <input
           type="text"
-          className="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className={`flex-1 border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 ${
+            theme === "light"
+              ? "border-gray-300 focus:ring-blue-400"
+              : "border-gray-600 bg-gray-700 text-white focus:ring-yellow-400"
+          }`}
           name="task"
           placeholder="Enter a task"
           onChange={(e) => setTask(e.target.value)}
@@ -76,7 +85,7 @@ function Body() {
           className={`ml-2 px-4 py-2 rounded-lg font-medium text-white transition ${
             editIndex == null
               ? "bg-blue-500 hover:bg-blue-600"
-              : "bg-yellow-800 hover:bg-yellow-600"
+              : "bg-yellow-700 hover:bg-yellow-600"
           }`}
         >
           {editIndex == null ? "Add Task" : "Update Task"}
@@ -86,7 +95,11 @@ function Body() {
       <div className="mb-4">
         <input
           type="text"
-          className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-400"
+          className={`w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 ${
+            theme === "light"
+              ? "border-gray-300 focus:ring-green-400"
+              : "border-gray-600 bg-gray-700 text-white focus:ring-green-300"
+          }`}
           placeholder="Search tasks..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
@@ -99,12 +112,14 @@ function Body() {
             filteredTasks.map((t, index) => (
               <li
                 key={index}
-                className="flex flex-col bg-gray-100 px-4 py-2 rounded-lg shadow-sm"
+                className={`flex flex-col px-4 py-2 rounded-lg shadow-sm ${
+                  theme === "light" ? "bg-gray-100" : "bg-gray-700"
+                }`}
               >
                 <div className="flex justify-between items-center">
                   <span
-                    className={`text-gray-700 ${
-                      t.isCompleted ? "line-through text-gray-400" : ""
+                    className={`${
+                      t.isCompleted ? "line-through opacity-60" : ""
                     }`}
                   >
                     {t.text}
@@ -112,26 +127,26 @@ function Body() {
                   <div className="flex space-x-2">
                     <button
                       onClick={() => editTask(index)}
-                      className="px-3 py-1 text-sm rounded-lg bg-yellow-700 text-white hover:bg-yellow-500 transition"
+                      className="px-3 py-1 text-sm rounded-lg bg-yellow-600 text-white hover:bg-yellow-500 transition"
                     >
                       Edit
                     </button>
                     <button
                       onClick={() => toggleComplete(index)}
-                      className="px-3 py-1 text-sm rounded-lg bg-green-700 text-white hover:bg-green-600 transition"
+                      className="px-3 py-1 text-sm rounded-lg bg-green-600 text-white hover:bg-green-500 transition"
                     >
                       {t.isCompleted ? "Undo" : "Complete"}
                     </button>
                     <button
                       onClick={() => deleteTask(index)}
-                      className="px-3 py-1 text-sm rounded-lg bg-red-700 text-white hover:bg-red-600 transition"
+                      className="px-3 py-1 text-sm rounded-lg bg-red-600 text-white hover:bg-red-500 transition"
                     >
                       Delete
                     </button>
                   </div>
                 </div>
 
-                <div className="text-xs text-gray-500 mt-1">
+                <div className="text-xs opacity-70 mt-1">
                   Added: {new Date(t.createdAt).toLocaleString()}
                   {t.completedAt && (
                     <>
