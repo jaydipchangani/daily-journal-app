@@ -1,9 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 function Body() {
   const [task, setTask] = useState("");
   const [taskList, setTaskList] = useState([]);
   const [editIndex, setEditIndex] = useState(null);
+
+  useEffect(() => {
+    const storedTasks = localStorage.getItem("tasks");
+    if (storedTasks) {
+      setTaskList(JSON.parse(storedTasks));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(taskList));
+  }, [taskList]);
 
   function addOrUpdateTask() {
     if (task.trim() === "") return;
