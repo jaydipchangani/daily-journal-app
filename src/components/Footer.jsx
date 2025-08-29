@@ -16,6 +16,7 @@ function Footer() {
       {/* Left: Quote */}
       <p className="text-lg mb-3 md:mb-0">
         Add it. Edit it. Delete it. Regret it later.
+        
       </p>
 
       {/* Center: Copyright */}

@@ -30,6 +30,7 @@ A simple and intuitive Daily Journal application to manage your daily tasks. Add
 
 ## 📌 Future Improvements (Optional)
 
+- Streak Gamification
 - User authentication  
 - Task categories or tags  
 - Notifications or reminders  
