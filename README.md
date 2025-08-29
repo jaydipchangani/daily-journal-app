@@ -1,12 +1,43 @@
-# React + Vite
+# 📝 Daily Journal App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple and intuitive Daily Journal application to manage your daily tasks. Add, edit, complete, or delete tasks with ease, all while enjoying a sleek UI with dark and light mode themes. Your data is securely stored using `localStorage`, so it's always there when you return.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ✅ **Add Tasks** – Quickly jot down your tasks with date and time.
+- 📝 **Edit Tasks** – Modify task details whenever needed.
+- ❌ **Delete Tasks** – Remove tasks you no longer need.
+- ☑️ **Mark as Complete** – Track task progress by marking them as done.
+- 📅 **Date & Time Support** – Each task include timestamp.
+- 🔍 **Search Functionality** – Easily find tasks by keywords.
+- 💡 **Dark & Light Mode** – Toggle between modern UI themes.
+- 💾 **Persistent Storage** – Tasks are saved in your browser's `localStorage`.
 
-## Expanding the ESLint configuration
+## 🚀 Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+
+- A modern web browser (Chrome, Firefox, Edge, etc.)
+- [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/)
+
+## ⚙️ Technologies Used
+
+- React  
+- Tailwind CSS  
+- JavaScript (ES6)  
+- Web Storage API (`localStorage`)
+- Vite 
+
+## 📌 Future Improvements (Optional)
+
+- User authentication  
+- Task categories or tags  
+- Notifications or reminders  
+- Cloud sync
+
+## 🙌 Follow Me
+
+If you liked this project, feel free to connect or follow me for more:
+
+- GitHub: [@jaydip-changani](https://github.com/jaydip-changani)
+- Email: [jaydipchangani2@gmail.com] 
